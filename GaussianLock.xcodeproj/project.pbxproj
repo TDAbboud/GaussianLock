@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F1F7DF521A22307006CCCB0 /* GaussianLockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1F7DF421A22307006CCCB0 /* GaussianLockView.h */; };
-		9F1F7DF721A22307006CCCB0 /* GaussianLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7DF621A22307006CCCB0 /* GaussianLockView.m */; };
+		9F1F7DFF21A2249E006CCCB0 /* GaussianLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7DFE21A2249E006CCCB0 /* GaussianLockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9F1F7DF121A22307006CCCB0 /* GaussianLock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GaussianLock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F1F7DF421A22307006CCCB0 /* GaussianLockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GaussianLockView.h; sourceTree = "<group>"; };
-		9F1F7DF621A22307006CCCB0 /* GaussianLockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GaussianLockView.m; sourceTree = "<group>"; };
 		9F1F7DF821A22307006CCCB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F1F7DFE21A2249E006CCCB0 /* GaussianLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaussianLockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,9 +46,8 @@
 		9F1F7DF321A22307006CCCB0 /* GaussianLock */ = {
 			isa = PBXGroup;
 			children = (
-				9F1F7DF421A22307006CCCB0 /* GaussianLockView.h */,
-				9F1F7DF621A22307006CCCB0 /* GaussianLockView.m */,
 				9F1F7DF821A22307006CCCB0 /* Info.plist */,
+				9F1F7DFE21A2249E006CCCB0 /* GaussianLockView.swift */,
 			);
 			path = GaussianLock;
 			sourceTree = "<group>";
@@ -62,7 +59,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1F7DF521A22307006CCCB0 /* GaussianLockView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +94,7 @@
 				TargetAttributes = {
 					9F1F7DF021A22307006CCCB0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -133,7 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1F7DF721A22307006CCCB0 /* GaussianLockView.m in Sources */,
+				9F1F7DFF21A2249E006CCCB0 /* GaussianLockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +140,7 @@
 		9F1F7DF921A22307006CCCB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -202,6 +200,7 @@
 		9F1F7DFA21A22307006CCCB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -254,12 +253,20 @@
 		9F1F7DFC21A22307006CCCB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = GaussianLock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.GaussianLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -267,12 +274,19 @@
 		9F1F7DFD21A22307006CCCB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = GaussianLock/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.GaussianLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
