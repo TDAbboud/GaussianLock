@@ -26,8 +26,9 @@ class GaussianLockView: ScreenSaverView {
     override func draw(_ rect: NSRect) {
         super.draw(rect)
 
-        if let image = image {
-            image.draw(in: rect)
+        if image != nil {
+            let blurredImage = blurImage()
+            blurredImage.draw(in: rect)
         } else {
             // default to red, so we know something went wrong
             NSColor.red.setFill()
@@ -65,5 +66,19 @@ class GaussianLockView: ScreenSaverView {
         let data = self.captureScreenToData()
         self.image = NSImage.init(data: data as Data)!
         self.needsDisplay = true
+    }
+    
+    private func blurImage() -> NSImage {
+        let ciImage = CIImage.init(data: image!.tiffRepresentation!)
+        let filter = CIFilter(name: "CIGaussianBlur")!
+        filter.setDefaults()
+        filter.setValue(ciImage, forKey: kCIInputImageKey)
+        let outputImage = filter.value(forKey: kCIOutputImageKey) as! CIImage
+        let outputImageRect = NSRectFromCGRect(outputImage.extent)
+        let blurredImage = NSImage(size: outputImageRect.size)
+        blurredImage.lockFocus()
+        outputImage.draw(at: NSZeroPoint, from: outputImageRect, operation: .copy, fraction: 1.0)
+        blurredImage.unlockFocus()
+        return blurredImage
     }
 }
